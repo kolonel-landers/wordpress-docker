@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  wordpress:
+    image: wordpress
+    ports:
+      - "8081:80"   # le port 8081 de Windows → 80 dans le container
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    depends_on:
+      - db
+    volumes:
+      - "/mnt/c/WINDOWS/system32/wordpress-docker/wp-content:/var/www/html/wp-content"
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_ROOT_PASSWORD: rootpass
+    volumes:
+  - "/mnt/c/WINDOWS/system32/wordpress-docker/wp-content:/var/www/html/wp-content"

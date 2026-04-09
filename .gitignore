@@ -1,0 +1,22 @@
+# Ignorer les fichiers Windows inutiles
+$RECYCLE.BIN/
+System Volume Information/
+
+# Ignorer les fichiers temporaires et médias lourds
+*.mp4
+*.zip
+*.docx
+*.DS_Store
+
+
+# Ignorer les volumes Docker MySQL
+db-data/
+
+# Ignorer les fichiers temporaires
+*.log
+*.sock
+*.pid
+
+# Ignorer les fichiers système Windows
+Thumbs.db
+.DS_Store
