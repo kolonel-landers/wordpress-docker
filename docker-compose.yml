@@ -2,7 +2,7 @@ services:
   wordpress:
     image: wordpress
     ports:
-      - "8081:80"   # le port 8081 de Windows → 80 dans le container
+      - "8090:80"
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: exampleuser
@@ -11,7 +11,7 @@ services:
     depends_on:
       - db
     volumes:
-      - "D:/Landry DEV/DevOps Project/Project 1/wordpress-docker/wp-content:/var/www/html/wp-content"
+      - ./monsite:/var/www/html
 
   db:
     image: mysql:5.7
@@ -20,5 +20,3 @@ services:
       MYSQL_USER: exampleuser
       MYSQL_PASSWORD: examplepass
       MYSQL_ROOT_PASSWORD: rootpass
-    volumes:
-      - "D:/Landry DEV/DevOps Project/Project 1/wordpress-docker/db-data:/var/lib/mysql"
